@@ -1,0 +1,8 @@
+{
+    "name": "notif",
+    "port": 8004,
+    "check": {
+      "http": "http://notif:8004/health/",
+      "interval": "10s"
+  }
+}

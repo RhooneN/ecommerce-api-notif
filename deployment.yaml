@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notif
+  labels:
+    app: notif
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: notif
+  template:
+    metadata:
+      labels:
+        app: notif
+    spec:
+      containers:
+        - name: notif
+          image: cyamez/notif:latest
+          ports:
+            - containerPort: 8004
