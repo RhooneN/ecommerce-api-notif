@@ -26,15 +26,9 @@ load_dotenv()
 SECRET_KEY = config('JWT_SECRET_KEY')#'django-insecure-7))qt8!&^-_3y8erc&*6#l^$5g*x4pyxojrn6%9oqlrx+tr=)z'
 
 
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ['payment', "orders", "notif",
-    "authentic",
-    "shopping_cart",
-    "catalog",
-    "localhost",
-    'auth-service',  # For Docker compatibility
-    'app']
+ALLOWED_HOSTS = ["*"] if DEBUG else [".onrender.com"]
 
 
 # Email settings (SendGrid)
