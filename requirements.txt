@@ -1,5 +1,5 @@
 twilio
-sendgrid>=6.12.4
+sendgrid==6.12.4
 asgiref
 gunicorn>=23.0.0
 packaging>=25.0
@@ -9,11 +9,12 @@ sqlparse>=0.5.3
 tzdata>=2025.2
 PyJWT
 python-decouple
-django
 python-dotenv
 django-cors-headers
-djangorestframework
-djangorestframework_simplejwt
+djangorestframework==3.16.0
+django==5.2.3
+djangorestframework_simplejwt==5.5.1
+pillow
 dotenv
 pytest
 pytest-django
