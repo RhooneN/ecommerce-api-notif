@@ -7,6 +7,8 @@ from .serializers import NotificationSerializer
 from django.core.mail import send_mail
 from twilio.rest import Client
 from django.conf import settings
+from drf_spectacular.utils import extend_schema
+
 
 from django.http import JsonResponse
 
@@ -20,7 +22,11 @@ TWILIO_PHONE_NUMBER = getattr(settings, 'TWILIO_PHONE_NUMBER', )
 class NotificationView(APIView):
     permission_classes = []
     queryset = Notification.objects.all()
-	
+    
+	@extend_schema(
+    request=PaymentSerializer,
+    responses=PaymentSerializer
+    )
     def post(self, request):
         """
         Create a notification (email or SMS) and send it.
